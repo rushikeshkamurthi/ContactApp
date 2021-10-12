@@ -5,7 +5,7 @@ import {
     LOGIN_LOADING, 
     LOGIN_STAT_CLEAR, 
 } from "../../../constants/actionTypes";
-import axiosInstance from "../../../helper/axiosInterceptor";
+import axiosInstance from "../../../helper/axiosInstance";
 
 
 export default({password,userName:username})=>(dispatch)=>{

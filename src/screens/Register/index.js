@@ -81,7 +81,7 @@ const onSubmit = () => {
                 console.log('11111');
            register(form)(authDispatch)((response)=>{
 
-            navigate(LOGIN,{data:response});
+            navigate(LOGIN,{data: response});
            });
         }
 };

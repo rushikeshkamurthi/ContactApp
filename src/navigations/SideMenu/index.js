@@ -1,11 +1,10 @@
-import React from 'react'
-import { View,
-    Alert, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import * as React from 'react';
+import { View,Alert, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import Container from '../../components/common/container'
 import { CREATE_CONTACT, REGISTER, SETTINGS } from '../../constants/routeNames'
 import logoutUser from '../../context/actions/auth/logoutUser'
 import styles from './styles'
-
+import Icon from '../../components/icon'
 const SideMenu = ({navigation,authDispatch}) => {
 
     const handleLogout=()=>{
@@ -24,17 +23,17 @@ const SideMenu = ({navigation,authDispatch}) => {
     ]);
     };
     const menuItems=[
-        {icon:<Text>T</Text>,name:'Settings',onPress:()=>{
+        {icon:<Icon type="FontistoIcon" name="player-settings" size={25}></Icon>,name:'Settings',onPress:()=>{
             navigation.navigate(SETTINGS);
         },},
         
-        {icon:<Text>T</Text>,name:'Create Contact',
+        {icon:<Icon type="Ionicons" name="person-add-outline" size={25}></Icon>,name:'Create Contact',
         onPress:()=>{
             navigation.navigate(CREATE_CONTACT);
         },
     },
      
-    {icon:<Text>T</Text>,name:'Logout',
+    {icon:<Icon type="MaterialIcons" name="logout" size={25}></Icon>,name:'Logout',
     onPress:handleLogout, 
    
 },

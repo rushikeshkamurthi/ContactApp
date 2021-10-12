@@ -9,9 +9,10 @@ headers,
 });
 axiosInstance.interceptors.request.use(
    async (config)=>{
-        const token = await AsyncStorage.getItem('toket'); 
+        const token = await AsyncStorage.getItem('token'); 
         if(token){
-            config.headers.Authorization=`Bearer ${token}`;
+         config.headers.Authorization=`Bearer ${token}`;
+             // config.headers.Authorization = `Bearer ${token}`;
         }
         return config;
 

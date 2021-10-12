@@ -10,10 +10,9 @@ import MessageComponent from '../common/Message';
 import styles from './styles';
 import { useState } from 'react';
 const LoginComponent = (
-    {
+    { form,
         onSubmit,
         onChange,
-        form,
         errors,
        error,
         loading,

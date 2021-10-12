@@ -14,7 +14,7 @@ const [justSignedUp, setjustSignedUp] = React.useState(false);
 } = React.useContext(GlobalContext);
 React.useEffect(() => {
   if(params?.data)
-  {
+  {setjustSignedUp(true);
     console.log('params:',params);
     console.log("login succesfull");
     setform({...form,userName:params.data.username})
@@ -37,7 +37,7 @@ React.useEffect(() => {
   console.log('form data',form);
   setform({...form,[name]:value});
   //this is for first time login
-  justSignedUp=false;
+  setjustSignedUp(false);
  };
 
 return (  

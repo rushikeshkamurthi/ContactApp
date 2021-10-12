@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { LOGOUT_USER } from "../../../constants/actionTypes";
-import axiosInstance from "../../../helper/axiosInterceptor";
+import axiosInstance from "../../../helper/axiosInstance";
 
 
 export default()=>(dispatch)=>{
