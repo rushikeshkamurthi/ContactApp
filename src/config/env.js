@@ -1,5 +1,5 @@
-import {DEV_BACKEND_URL,PROD_BACKEND_URL} from "@env"
- 
+import {DEV_BACKEND_URL,PROD_BACKEND_URL} from "@env";
+
  const devEnvironmentVariable = {
      DEV_BACKEND_URL,
 };

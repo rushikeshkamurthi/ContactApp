@@ -17,8 +17,7 @@ function Contact({ navigation }) {
         getContacts()(contactsDispatch);
        
     },[]);
-
-
+    
    React.useEffect(() => {// whenever this object is rendered do this
         setOptions({
             headerLeft: () => <TouchableOpacity

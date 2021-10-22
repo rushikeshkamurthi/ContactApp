@@ -8,6 +8,7 @@ import { LOGIN } from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/core';
 import { useFocusEffect } from '@react-navigation/native';
 import { clearAuthState } from '../../context/actions/auth/register';
+import axiosInstance from '../../helper/axiosInstance';
 const Register =()=> {
 // this will set initial state of form and error to empty{}
 const [form,setform] = useState({});
@@ -21,6 +22,12 @@ const {authDispatch,authState:{error,loading,data}} = useContext(GlobalContext);
 // }     
 
 // },[data]);
+React.useEffect(() => {
+    axiosInstance.post('/auth/login').catch(err=>{
+        console.log(err);
+    });
+   
+}, [])
 
 useFocusEffect(
     React.useCallback(() => {
