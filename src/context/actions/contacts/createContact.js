@@ -4,23 +4,25 @@ import { CREATE_CONTACT_LOADING,
 } from "../../../constants/actionTypes"
 
 import axiosInstance from "../../../helper/axiosInstance";
-export default (form) => (dispatch)=> {
+export default (form) => (dispatch)=>(onSuccess) => {
     const requestPayload = {
         country_code:form.phoneCode || '',
         first_name: form.firstName || '', 
         last_name: form.lastName || '',
         phone_number: form.phoneNumber || '',
-        contact_picture: form.contactPicture || '',
+        contact_picture: form.contactPicture || null,
         is_favorite: false,
     }
 dispatch({
     type:CREATE_CONTACT_LOADING,
 });
 axiosInstance.post('/contacts/',requestPayload).then((res)=>{
+    console.log('res.data',res.data);
     dispatch({
 type:CREATE_CONTACT_SUCCESS,
 payload:res.data,
     });
+    onSuccess();
 }).catch((err)=>{
 console.log(err);
 dispatch({

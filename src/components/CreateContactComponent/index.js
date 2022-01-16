@@ -6,7 +6,14 @@ import Input from '../common/input';
 import styles from './styles';
 import CountryPicker from 'react-native-country-picker-modal'
 
-const CreateContactComponent = ({onChangeText, onSubmit ,setForm ,form}) => {
+const CreateContactComponent = ({
+    onChangeText, 
+    error, 
+    loading,
+     onSubmit,
+     setForm,
+     form }) => {
+         console.log('error',error);
     return (
         <View style= { styles.container}>
             <Container>
@@ -18,12 +25,16 @@ const CreateContactComponent = ({onChangeText, onSubmit ,setForm ,form}) => {
                   borderRadius:100 
                   }} />
                    <Text style={styles.chooseImage}>Choose Image</Text></TouchableOpacity>
-            <Input label= "First Name" placeholder= " Enter First Name" 
+            <Input label= "First Name" 
+            error={error?.first_name?.[0]} 
+            placeholder= " Enter First Name" 
             onChangeText = {(value)=> {
                 onChangeText({name:'firstName' ,value:value})
             }}  >
             </Input>
-            <Input label= "Last Name" placeholder= " Enter Last Name" 
+            <Input label= "Last Name"
+             placeholder= " Enter Last Name" 
+             error={error?.last_name?.[0]} 
             onChangeText = {(value)=> {
                 onChangeText({name:'lastName' ,value:value})
             }}
@@ -49,12 +60,19 @@ const CreateContactComponent = ({onChangeText, onSubmit ,setForm ,form}) => {
         }
         style={{paddingLeft:10}}
         iconposition="left" 
-         label= "Phone Number" placeholder= " Enter Phone Number" 
+         label= "Phone Number"
+          placeholder= " Enter Phone Number" 
+          error={error?.phone_number?.[0]} 
          onChangeText = {(value)=> {
             onChangeText({name:'phoneNumber' ,value:value})
         }}
          ></Input>
-            <CustomButton  onPress={onSubmit} primary title="Submit"  />
+            <CustomButton 
+             loading={loading} 
+             disabled={loading}
+              onPress={onSubmit} 
+              primary title="Submit"
+                />
             </Container>
         </View>
     )
