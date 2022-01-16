@@ -27,7 +27,16 @@ fontWeight:"400",
     phoneNumber:{
 paddingVertical:5,
 opacity:0.6,
-    }
-
-
+    },
+floatingActionButton : {
+    backgroundColor:'red',
+    width:55,
+    height:55,
+    position:'absolute',
+    bottom: 45,
+    right: 10,
+    borderRadius: 100,
+    justifyContent:'center',
+    alignItems:'center',
+},
 });

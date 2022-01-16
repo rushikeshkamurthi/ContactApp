@@ -5,7 +5,12 @@ import AppModal from '../common/AppModal'
 import MessageComponent from '../common/Message';
 import Icon from '../icon';
 import styles from '../ContactComponent/styles';
+import { CREATE_CONTACT } from '../../constants/routeNames';
+import { useNavigation } from '@react-navigation/native';
+
 const ContactComponent = ({ modalVisible, data, loading, setModalVisible }) => {
+    const {navigate}= useNavigation();
+
     const EmptyComponent = () => {
         return (
             <View style={{ paddingHorizontal: 100, paddingVertical: 80 }}>
@@ -16,6 +21,9 @@ const ContactComponent = ({ modalVisible, data, loading, setModalVisible }) => {
         console.log('item', item);
         const { contact_picture, first_name, last_name, phone_number,country_code } = item;
         
+        const navigate = ()=>{
+
+        }
         return (<TouchableOpacity style={styles.itemContainer}>
             <View style={styles.item}> 
             <View style={{borderRadius:100}}>{/* profile photo */}{contact_picture ?
@@ -52,6 +60,7 @@ const ContactComponent = ({ modalVisible, data, loading, setModalVisible }) => {
         </TouchableOpacity>);
     }
     return (
+        <>
         <View style={{ backgroundColor: colors.white }}>
             <AppModal
                 modalfooter={<></>
@@ -72,6 +81,11 @@ const ContactComponent = ({ modalVisible, data, loading, setModalVisible }) => {
                 /></View>
             )}
         </View>
-    )
-}
+            <TouchableOpacity style={styles.floatingActionButton} onPress={()=>navigate(CREATE_CONTACT)}>
+            <Icon name="plus" size={22} type="Feather" color={colors.white}></Icon>
+            </TouchableOpacity>
+        </>    )
+};
 export default ContactComponent
+
+
